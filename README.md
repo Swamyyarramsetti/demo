@@ -29,8 +29,56 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
        - Ensures logical pickup_datetime < dropoff_datetime.
        - Drops trips longer than 24 hours or shorter than 60 seconds.
    - Adds a computed column: trip_duration = dropoff_time - pickup_time.
+     
 `bash`
-     spark-submit transfor.py
+    
+    spark-submit transfor.py
+### Phase 3: Data Storage
+- Stores cleansed data as Parquet format in HDFS, partitioned by vendor_id.
+- Creates an external Hive table pointing to the partitioned data for SQL querying.
+  
+`bash`
+    
+    hive -f external.hql
+### Phase 4: Data Analysis
+- Executes Spark SQL queries defined in analysis.py to:
+     - Find top 5 vendors by revenue.
+     - Analyze trip duration trends by hour of day.
+     - Correlate trip distance with total fare.
+  - Can export small datasets for visualization using pandas and matplotlib
+  
+`bash`
+
+    spark-submit analysis.py
+
+    
+### Phase 5: Performance Tuning
+- Optimizations implemented:
+      - Parquet format used for efficient I/O.
+      - Hive tables partitioned by vendor_id to reduce scan size.
+      - Caching used on intermediate Spark DataFrames.
+      - explain(True) used to examine and improve query plans.
+      - Broadcast joins where applicable.
+
+
+# How to Run
+- Make sure the dataset is available at the correct local path, then execute the entire pipeline using:
+  
+`bash`
+    
+    bash script.sh
+This will execute all five phases sequentially.
+
+## File Structure
+  .
+├── script.sh           # Master script to run all pipeline phases
+├── transfor.py         # PySpark script for data cleansing & transformation
+├── external.hql        # Hive DDL for creating external table
+├── analysis.py         # PySpark SQL queries for data analysis
+├── README.md           # Project documentation
+└── nyc_taxi_data.csv   # Input dataset (CSV format)
+
+
 
 
 
