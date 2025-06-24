@@ -29,6 +29,8 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
        - Ensures logical pickup_datetime < dropoff_datetime.
        - Drops trips longer than 24 hours or shorter than 60 seconds.
    - Adds a computed column: trip_duration = dropoff_time - pickup_time.
+`bash`
+     spark-submit transfor.py
 
 
 
