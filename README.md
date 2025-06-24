@@ -20,6 +20,16 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
 
     hdfs dfs -mkdir -p /data/nyctaxi/raw/
     hdfs dfs -put /home/swamyyarr70wedu/nyc_taxi_data.csv /data/nyctaxi/raw/
+### Phase 2: Data Transformation
+- Launches a PySpark script (transfor.py) that:
+   - Loads raw CSV data.
+   - Cleans and filters records:
+       - Removes null/malformed rows.
+       - Filters rows where trip_distance or passenger_count ≤ 0.
+       - Ensures logical pickup_datetime < dropoff_datetime.
+       - Drops trips longer than 24 hours or shorter than 60 seconds.
+   - Adds a computed column: trip_duration = dropoff_time - pickup_time.
+
 
 
 
