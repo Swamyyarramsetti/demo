@@ -16,7 +16,6 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
 - Creates the HDFS directory: /data/nyctaxi/raw/
 - Uploads the CSV dataset to HDFS.
 
-hdfs dfs -mkdir -p /data/nyctaxi/raw/
-
 hdfs dfs -put /home/swamyyarr70wedu/nyc_taxi_data.csv /data/nyctaxi/raw/
+
 
