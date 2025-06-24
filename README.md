@@ -9,3 +9,9 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
 - Cassandra for fast retrieval of aggregated insights
 - Bash for automation
 - Pandas/Matplotlib (Optional) for data visualization
+
+## Pipeline Phases
+
+### Phase 1: Data Ingestion
+- Creates the HDFS directory: /data/nyctaxi/raw/
+- Uploads the CSV dataset to HDFS.
