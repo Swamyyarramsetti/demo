@@ -79,7 +79,10 @@ This will execute all five phases sequentially.
 ├── README.md           # Project documentation
 └── nyc_taxi_data.csv   # Input dataset (CSV format)
 ```
-
+## Sample Queries (Phase 4)
+    Top 5 Vendors by Revenue
+    Trip Duration Trend by Hour
+    Correlation between Distance and Fare
 
 
 
