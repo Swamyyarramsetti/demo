@@ -70,14 +70,15 @@ This project implements a Big Data ETL (Extract, Transform, Load) pipeline for a
 This will execute all five phases sequentially.
 
 ## File Structure
-  .
+  
+```bash
 ├── script.sh           # Master script to run all pipeline phases
 ├── transfor.py         # PySpark script for data cleansing & transformation
 ├── external.hql        # Hive DDL for creating external table
 ├── analysis.py         # PySpark SQL queries for data analysis
 ├── README.md           # Project documentation
 └── nyc_taxi_data.csv   # Input dataset (CSV format)
-
+```
 
 
 
